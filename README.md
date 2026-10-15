@@ -66,6 +66,19 @@ samples, guidance on mobile development, and a full API reference.
 
 - Dart SDK: ^3.13.0
 - Flutter: ">=3.47.0"
+- material_ui: ^1.7.0
+
+> Since version 19.0.0, **Reactive Forms** uses the decoupled `material_ui` package. Your app
+> must import `package:material_ui/material_ui.dart` instead of `package:flutter/material.dart`,
+> otherwise Material types such as `InputDecoration` will not match. To migrate, run:
+>
+> ```sh
+> flutter pub add material_ui:^1.7.0
+> dart fix --apply --code=migrate_design_widgets
+> ```
+>
+> For using **Reactive Forms** with `package:flutter/material.dart`, please use version <= 18.2.2
+> of **Reactive Forms**.
 
 > For using **Reactive Forms** in projects below Flutter 2.8.0, please use version <= 10.7.0 of
 > **Reactive Forms**.

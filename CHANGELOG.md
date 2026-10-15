@@ -1,7 +1,19 @@
 # 19.0.0
 
+## Breaking Changes
+
 - Migrate to material_ui
 - Set Flutter minimum to 3.47.0
+
+Widgets now use the Material types from the decoupled `material_ui` package. Apps
+that still import `package:flutter/material.dart` will get errors like
+`The argument type 'InputDecoration' can't be assigned to the parameter type
+'InputDecoration'`. Migrate your app to `material_ui`:
+
+```sh
+flutter pub add material_ui:^1.7.0
+dart fix --apply --code=migrate_design_widgets
+```
 
 # 18.2.2
 
