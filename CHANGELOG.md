@@ -64,7 +64,7 @@
 
 # 18.0.0
 
-- Moved `examples` project out of the package's code, and uploaded to its own [repo](https://github.com/joanpablo/reactive_forms_example).
+- Moved `examples` project out of the package's code, and uploaded to its own [repo](https://github.com/uptech/reactive_forms_example).
 
 ## Breaking changes
 - Upgraded Flutter minimum version to `3.29.0`.
@@ -339,7 +339,7 @@ data type.
 
 - Added optional argument to **Validators.mustMatch** that allows to define if we want to mark
   the _matchingControlName_ control as **DIRTY** when the control is invalid.
-  See related [issue](https://github.com/joanpablo/reactive_forms/issues/199).
+  See related [issue](https://github.com/uptech/reactive_forms/issues/199).
 - Minor changes in model classes that allows to create custom AbstractControl implementations
 
 # 10.5.0
@@ -920,7 +920,7 @@ data type.
 - Use of **Streams** to notify events.
 - Renamed event names.
 
-See [Migration Guide](https://github.com/joanpablo/reactive_forms/wiki/Migration-Guide) to see how
+See [Migration Guide](https://github.com/uptech/reactive_forms/wiki/Migration-Guide) to see how
 to migrate from version 1.x to 2.x.
 
 # 1.1.0

@@ -2,7 +2,7 @@
 
 This is a model-driven approach to handling form inputs and validations, heavily inspired by [Angular's Reactive Forms](https://angular.io/guide/reactive-forms).
 
-[![Pub Version](https://img.shields.io/pub/v/reactive_forms)](https://pub.dev/packages/reactive_forms) ![GitHub](https://img.shields.io/github/license/joanpablo/reactive_forms) ![GitHub top language](https://img.shields.io/github/languages/top/joanpablo/reactive_forms) ![flutter tests](https://github.com/joanpablo/reactive_forms/workflows/reactive_forms/badge.svg?branch=master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a4e40d632feb41b5af624cbd36064c83)](https://www.codacy.com/manual/joanpablo/reactive_forms?utm_source=github.com&utm_medium=referral&utm_content=joanpablo/reactive_forms&utm_campaign=Badge_Grade) [![codecov](https://codecov.io/gh/joanpablo/reactive_forms/branch/master/graph/badge.svg)](https://codecov.io/gh/joanpablo/reactive_forms)
+[![Pub Version](https://img.shields.io/pub/v/reactive_forms)](https://pub.dev/packages/reactive_forms) ![GitHub](https://img.shields.io/github/license/uptech/reactive_forms) ![GitHub top language](https://img.shields.io/github/languages/top/uptech/reactive_forms) ![flutter tests](https://github.com/uptech/reactive_forms/workflows/reactive_forms/badge.svg?branch=master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a4e40d632feb41b5af624cbd36064c83)](https://www.codacy.com/manual/uptech/reactive_forms?utm_source=github.com&utm_medium=referral&utm_content=uptech/reactive_forms&utm_campaign=Badge_Grade) [![codecov](https://codecov.io/gh/uptech/reactive_forms/branch/master/graph/badge.svg)](https://codecov.io/gh/uptech/reactive_forms)
 
 ## Table of Contents
 
@@ -279,7 +279,7 @@ Map<String, dynamic>? _requiredTrue(AbstractControl<dynamic> control) {
 }
 ```
 
-> Check the [Migration Guide](https://github.com/joanpablo/reactive_forms/wiki/Migration-Guide/_edit#breaking-changes-in-15x) to learn more about custom validators after version 15.0.0 of the package.
+> Check the [Migration Guide](https://github.com/uptech/reactive_forms/wiki/Migration-Guide/_edit#breaking-changes-in-15x) to learn more about custom validators after version 15.0.0 of the package.
 
 ### Pattern Validator
 
@@ -463,7 +463,7 @@ class UniqueEmailAsyncValidator extends AsyncValidator<dynamic> {
 
 The previous implementation was a simple validator that receives the **AbstractControl** and returns a [Future](https://api.dart.dev/stable/dart-async/Future-class.html) that completes 5 seconds after its call and performs a simple check: if the _value_ of the _control_ is contained in the _server_ array of emails.
 
-> If you want to see **Async Validators** in action with a **full example** using widgets and animations to provide feedback to the user, we strongly advise you to visit our [Wiki](https://github.com/joanpablo/reactive_forms/wiki/Asynchronous-Validators). We have not included the full example in this README.md file to simplify things here and not to anticipate things that we will see later in this doc.
+> If you want to see **Async Validators** in action with a **full example** using widgets and animations to provide feedback to the user, we strongly advise you to visit our [Wiki](https://github.com/uptech/reactive_forms/wiki/Asynchronous-Validators). We have not included the full example in this README.md file to simplify things here and not to anticipate things that we will see later in this doc.
 
 > The validator `Validators.delegateAsync()` is another way to implement a custom validator. For more reference,
 > check the [Custom Validators](#custom-validators) section.
@@ -1735,9 +1735,9 @@ There is no reason to write code manually! Let the code generation work for you.
 
 **Reactive Forms** is not limited to just common widgets in _Forms_ like text, dropdowns, sliders, switch fields, etc. You can easily create **custom widgets** that **two-way** bind to **FormControls** and create your own set of _Reactive Widgets_.
 
-In our [Wiki](https://github.com/joanpablo/reactive_forms/wiki/Custom-Reactive-Widgets), you can find a tutorial on how to create your custom Reactive Widget.
+In our [Wiki](https://github.com/uptech/reactive_forms/wiki/Custom-Reactive-Widgets), you can find a tutorial on how to create your custom Reactive Widget.
 
-You can also check the [Star Rating with Flutter Reactive Forms](https://dev.to/joanpablo/star-rating-with-flutter-reactive-forms-2d52) post as another example of a custom reactive widget.
+You can also check the [Star Rating with Flutter Reactive Forms](https://dev.to/uptech/star-rating-with-flutter-reactive-forms-2d52) post as another example of a custom reactive widget.
 
 ## What **Reactive Forms** is Not
 
@@ -1754,5 +1754,5 @@ You can also check the [Star Rating with Flutter Reactive Forms](https://dev.to/
 
 ## Migration Versions
 
-Visit the [Migration Guide](https://github.com/joanpablo/reactive_forms/wiki/Migration-Guide) to see
+Visit the [Migration Guide](https://github.com/uptech/reactive_forms/wiki/Migration-Guide) to see
 more details about different version breaking changes.
