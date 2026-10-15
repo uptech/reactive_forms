@@ -103,8 +103,9 @@ class NumberValidator extends Validator<dynamic> {
     }
 
     // Remove the negative sign, if present, for further validation
-    final unsignedNumberString =
-        hasNegativeSign ? numberString.substring(1) : numberString;
+    final unsignedNumberString = hasNegativeSign
+        ? numberString.substring(1)
+        : numberString;
 
     // Check for valid decimal positions
     if (!_validateNumberDecimals(allowedDecimals, unsignedNumberString)) {

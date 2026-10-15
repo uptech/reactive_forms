@@ -85,8 +85,8 @@ void main() {
 
     test('Assert error if debounce time < 0', () {
       void formControl() =>
-      // ignore: deprecated_member_use_from_same_package
-      FormControl<dynamic>(asyncValidatorsDebounceTime: -1);
+          // ignore: deprecated_member_use_from_same_package
+          FormControl<dynamic>(asyncValidatorsDebounceTime: -1);
       expect(formControl, throwsAssertionError);
     });
 
@@ -396,83 +396,68 @@ void main() {
   });
 
   group('FormControl reset with initial value', () {
-    test(
-      'resets to initial value if no argument is provided and initial value was not null',
-      () {
-        // Arrange
-        final control = FormControl<String>(value: 'initial');
-        control.updateValue('changed');
+    test('resets to initial value if no argument is provided and initial value was not null', () {
+      // Arrange
+      final control = FormControl<String>(value: 'initial');
+      control.updateValue('changed');
 
-        // Act
-        control.reset();
+      // Act
+      control.reset();
 
-        // Assert
-        expect(control.value, 'initial');
-      },
-    );
+      // Assert
+      expect(control.value, 'initial');
+    });
 
-    test(
-      'resets to initial value (null) if no argument is provided and initial value was null',
-      () {
-        // Arrange
-        final control = FormControl<String>(value: null);
-        control.updateValue('changed');
+    test('resets to initial value (null) if no argument is provided and initial value was null', () {
+      // Arrange
+      final control = FormControl<String>(value: null);
+      control.updateValue('changed');
 
-        // Act
-        control.reset();
+      // Act
+      control.reset();
 
-        // Assert
-        expect(control.value, null);
-      },
-    );
+      // Assert
+      expect(control.value, null);
+    });
 
-    test(
-      'resets to initial value (null) if no argument is provided and no initial value was specified (implicitly null)',
-      () {
-        // Arrange
-        final control = FormControl<String>();
-        control.updateValue('changed');
+    test('resets to initial value (null) if no argument is provided and no initial value was specified (implicitly null)', () {
+      // Arrange
+      final control = FormControl<String>();
+      control.updateValue('changed');
 
-        // Act
-        control.reset();
+      // Act
+      control.reset();
 
-        // Assert
-        expect(control.value, null);
-      },
-    );
+      // Assert
+      expect(control.value, null);
+    });
 
-    test(
-      'resets to specified value when value argument is provided, ignoring initial value',
-      () {
-        // Arrange
-        final control = FormControl<String>(value: 'initial');
-        control.updateValue('changed');
+    test('resets to specified value when value argument is provided, ignoring initial value', () {
+      // Arrange
+      final control = FormControl<String>(value: 'initial');
+      control.updateValue('changed');
 
-        // Act
-        control.reset(value: 'newValue');
+      // Act
+      control.reset(value: 'newValue');
 
-        // Assert
-        expect(control.value, 'newValue');
-      },
-    );
+      // Assert
+      expect(control.value, 'newValue');
+    });
 
-    test(
-      'resets to initial value when value argument is null and initial value was not null',
-      () {
-        // Arrange
-        final control = FormControl<String>(value: 'initial');
-        control.updateValue('changed');
+    test('resets to initial value when value argument is null and initial value was not null', () {
+      // Arrange
+      final control = FormControl<String>(value: 'initial');
+      control.updateValue('changed');
 
-        // Act
-        control.reset(value: null);
+      // Act
+      control.reset(value: null);
 
-        // Assert
-        expect(
-          control.value,
-          'initial',
-        ); // Because nonNullable is true by default
-      },
-    );
+      // Assert
+      expect(
+        control.value,
+        'initial',
+      ); // Because nonNullable is true by default
+    });
 
     test('resets to null if nonNullable is false', () {
       // Given: a control with an initial value and nonNullable as false
@@ -555,20 +540,17 @@ void main() {
       },
     );
 
-    test(
-      'updates default value to null when value is null and overwriteDefaultValue is true',
-      () {
-        // Given: a control with an initial value
-        final control = FormControl<String>(value: 'initial');
+    test('updates default value to null when value is null and overwriteDefaultValue is true', () {
+      // Given: a control with an initial value
+      final control = FormControl<String>(value: 'initial');
 
-        // When: reset to null and overwrite default
-        control.reset(value: null, overwriteDefaultValue: true);
+      // When: reset to null and overwrite default
+      control.reset(value: null, overwriteDefaultValue: true);
 
-        // Then: value is null
-        expect(control.value, null);
-        // And: default value is null
-        expect(control.defaultValue, null);
-      },
-    );
+      // Then: value is null
+      expect(control.value, null);
+      // And: default value is null
+      expect(control.defaultValue, null);
+    });
   });
 }

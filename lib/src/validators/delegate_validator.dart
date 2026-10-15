@@ -6,8 +6,9 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 /// Signature of a function that receives a control and synchronously
 /// returns a map of validation errors if present, otherwise null.
-typedef ValidatorFunction =
-    Map<String, dynamic>? Function(AbstractControl<dynamic> control);
+typedef ValidatorFunction = Map<String, dynamic>? Function(
+  AbstractControl<dynamic> control,
+);
 
 /// Validator that delegates the validation to an external function.
 class DelegateValidator extends Validator<dynamic> {

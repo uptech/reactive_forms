@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// A builder that builds a widget responsible to decide when to show
@@ -13,12 +13,11 @@ import 'package:reactive_forms/reactive_forms.dart';
 /// that is bound to [ReactiveTimePicker].
 ///
 /// See also [ReactiveTimePickerDelegate].
-typedef ReactiveTimePickerBuilder =
-    Widget Function(
-      BuildContext context,
-      ReactiveTimePickerDelegate picker,
-      Widget? child,
-    );
+typedef ReactiveTimePickerBuilder = Widget Function(
+  BuildContext context,
+  ReactiveTimePickerDelegate picker,
+  Widget? child,
+);
 
 /// This is a convenience widget that wraps the function
 /// [showTimePicker] in a [ReactiveTimePicker].
@@ -93,32 +92,33 @@ class ReactiveTimePicker extends ReactiveFormField<TimeOfDay, TimeOfDay> {
              field.context,
              ReactiveTimePickerDelegate._(
                field,
-               (field) => showTimePicker(
-                 context: field.context,
-                 initialTime: field.value ?? TimeOfDay.now(),
-                 builder: transitionBuilder,
-                 useRootNavigator: useRootNavigator,
-                 initialEntryMode: initialEntryMode,
-                 cancelText: cancelText,
-                 confirmText: confirmText,
-                 helpText: helpText,
-                 errorInvalidText: errorInvalidText,
-                 hourLabelText: hourLabelText,
-                 minuteLabelText: minuteLabelText,
-                 routeSettings: routeSettings,
-                 onEntryModeChanged: onEntryModeChanged,
-                 anchorPoint: anchorPoint,
-                 barrierLabel: barrierLabel,
-                 barrierColor: barrierColor,
-                 barrierDismissible: barrierDismissible,
-                 orientation: orientation,
-                 switchToInputEntryModeIcon: switchToInputEntryModeIcon,
-                 switchToTimerEntryModeIcon: switchToTimerEntryModeIcon,
-               ).then((value) {
-                 if (value != null) {
-                   field.didChange(value);
-                 }
-               }),
+               (field) =>
+                   showTimePicker(
+                     context: field.context,
+                     initialTime: field.value ?? TimeOfDay.now(),
+                     builder: transitionBuilder,
+                     useRootNavigator: useRootNavigator,
+                     initialEntryMode: initialEntryMode,
+                     cancelText: cancelText,
+                     confirmText: confirmText,
+                     helpText: helpText,
+                     errorInvalidText: errorInvalidText,
+                     hourLabelText: hourLabelText,
+                     minuteLabelText: minuteLabelText,
+                     routeSettings: routeSettings,
+                     onEntryModeChanged: onEntryModeChanged,
+                     anchorPoint: anchorPoint,
+                     barrierLabel: barrierLabel,
+                     barrierColor: barrierColor,
+                     barrierDismissible: barrierDismissible,
+                     orientation: orientation,
+                     switchToInputEntryModeIcon: switchToInputEntryModeIcon,
+                     switchToTimerEntryModeIcon: switchToTimerEntryModeIcon,
+                   ).then((value) {
+                     if (value != null) {
+                       field.didChange(value);
+                     }
+                   }),
              ),
              child,
            );
@@ -131,8 +131,9 @@ class ReactiveTimePicker extends ReactiveFormField<TimeOfDay, TimeOfDay> {
 }
 
 /// Definition of the function responsible for show the time picker.
-typedef _ShowTimePickerCallback =
-    void Function(ReactiveFormFieldState<TimeOfDay, TimeOfDay> field);
+typedef _ShowTimePickerCallback = void Function(
+  ReactiveFormFieldState<TimeOfDay, TimeOfDay> field,
+);
 
 /// This class is responsible of showing the picker dialog.
 ///

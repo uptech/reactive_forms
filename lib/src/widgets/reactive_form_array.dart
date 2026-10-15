@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../widgets/form_control_inherited_notifier.dart';
@@ -11,12 +11,11 @@ import '../widgets/form_control_inherited_notifier.dart';
 /// This is the signature of a function that receives the [context],
 /// the [formArray] and an optional [child] and returns a [Widget].
 ///
-typedef ReactiveFormArrayBuilder<T> =
-    Widget Function(
-      BuildContext context,
-      FormArray<T> formArray,
-      Widget? child,
-    );
+typedef ReactiveFormArrayBuilder<T> = Widget Function(
+  BuildContext context,
+  FormArray<T> formArray,
+  Widget? child,
+);
 
 /// This class is responsible for create a [FormControlInheritedStreamer] for
 /// exposing a [FormArray] to all descendants widgets.

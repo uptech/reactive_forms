@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// A reactive widget that wraps a [DropdownButtonFormField].
@@ -76,17 +76,15 @@ class ReactiveDropdownField<T> extends ReactiveFocusableFormField<T, T> {
                (item) => item.value == effectiveValue,
              );
              if (selectedItemIndex > -1) {
-               effectiveDisabledHint =
-                   selectedItemBuilder != null
-                       ? selectedItemBuilder(
-                         field.context,
-                       ).elementAt(selectedItemIndex)
-                       : items.elementAt(selectedItemIndex).child;
+               effectiveDisabledHint = selectedItemBuilder != null
+                   ? selectedItemBuilder(field.context)
+                         .elementAt(selectedItemIndex)
+                   : items.elementAt(selectedItemIndex).child;
              }
            }
 
            return DropdownButtonFormField<T>(
-             value: effectiveValue,
+             initialValue: effectiveValue,
              decoration: effectiveDecoration.copyWith(
                errorText: field.errorText,
                enabled: !isDisabled,
@@ -114,13 +112,12 @@ class ReactiveDropdownField<T> extends ReactiveFocusableFormField<T, T> {
              borderRadius: borderRadius,
              padding: padding,
              onTap: onTap != null ? () => onTap(field.control) : null,
-             onChanged:
-                 isDisabled
-                     ? null
-                     : (value) {
-                       field.didChange(value);
-                       onChanged?.call(field.control);
-                     },
+             onChanged: isDisabled
+                 ? null
+                 : (value) {
+                     field.didChange(value);
+                     onChanged?.call(field.control);
+                   },
            );
          },
        );

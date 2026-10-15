@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 void main() {
@@ -106,8 +106,8 @@ void main() {
                 formControlName: 'requiredField',
                 showErrors: (_) => true,
                 validationMessages: {
-                  ValidationMessage.maxLength:
-                      (_) => ValidationMessage.maxLength,
+                  ValidationMessage.maxLength: (_) =>
+                      ValidationMessage.maxLength,
                 },
               ),
             ),

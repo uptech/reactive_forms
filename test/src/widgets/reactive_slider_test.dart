@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_slider_testing_widget.dart';
@@ -42,10 +42,9 @@ void main() {
       // When: gets slider label
       final slider = tester.firstWidget<Slider>(find.byType(Slider));
       final sliderLabel = slider.label;
-      final expectedLabel = (form.control(reactiveSliderTestingName)
-              as FormControl<double>)
-          .value!
-          .toStringAsPrecision(2);
+      final expectedLabel = (form.control(
+        reactiveSliderTestingName,
+      ) as FormControl<double>).value!.toStringAsPrecision(2);
 
       // Then: slider label equals to expected label
       expect(sliderLabel, expectedLabel);
@@ -282,9 +281,9 @@ void main() {
       await tester.pumpWidget(ReactiveSliderTestingWidget(form: form));
 
       // When: get the state of the text field
-      final state =
-          tester.allStates.firstWhere((state) => state.widget is ReactiveSlider)
-              as ReactiveFormFieldState<num, double>;
+      final state = tester.allStates.firstWhere(
+        (state) => state.widget is ReactiveSlider,
+      ) as ReactiveFormFieldState<num, double>;
 
       // Then: the value accessor is IntValueAccessor
       expect(state.valueAccessor, isInstanceOf<SliderIntValueAccessor>());

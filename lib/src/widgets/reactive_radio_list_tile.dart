@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// This is a convenience widget that wraps a [RadioListTile] widget in a
@@ -58,41 +58,41 @@ class ReactiveRadioListTile<T> extends ReactiveFocusableFormField<T, T> {
     ValueChanged<bool>? onFocusChange,
   }) : super(
          builder: (field) {
-           return RadioListTile<T>(
-             value: value,
+           return RadioGroup<T>(
              groupValue: field.value,
-             mouseCursor: mouseCursor,
-             activeColor: activeColor,
-             hoverColor: hoverColor,
-             overlayColor: overlayColor,
-             materialTapTargetSize: materialTapTargetSize,
-             fillColor: fillColor,
-             splashRadius: splashRadius,
-             onFocusChange: onFocusChange,
-             selectedTileColor: selectedTileColor,
-             tileColor: tileColor,
-             title: title,
-             subtitle: subtitle,
-             isThreeLine: isThreeLine,
-             dense: dense,
-             secondary: secondary,
-             controlAffinity: controlAffinity,
-             contentPadding: contentPadding,
-             toggleable: toggleable,
-             shape: shape,
-             selected: selected,
-             autofocus: autofocus,
-             visualDensity: visualDensity,
-             focusNode: field.focusNode,
-             enableFeedback: enableFeedback,
-             radioScaleFactor: radioScaleFactor,
-             onChanged:
-                 field.control.enabled
-                     ? (value) {
-                       field.didChange(value);
-                       onChanged?.call(field.control);
-                     }
-                     : null,
+             onChanged: (value) {
+               field.didChange(value);
+               onChanged?.call(field.control);
+             },
+             child: RadioListTile<T>(
+               value: value,
+               enabled: field.control.enabled,
+               mouseCursor: mouseCursor,
+               activeColor: activeColor,
+               hoverColor: hoverColor,
+               overlayColor: overlayColor,
+               materialTapTargetSize: materialTapTargetSize,
+               fillColor: fillColor,
+               splashRadius: splashRadius,
+               onFocusChange: onFocusChange,
+               selectedTileColor: selectedTileColor,
+               tileColor: tileColor,
+               title: title,
+               subtitle: subtitle,
+               isThreeLine: isThreeLine,
+               dense: dense,
+               secondary: secondary,
+               controlAffinity: controlAffinity,
+               contentPadding: contentPadding,
+               toggleable: toggleable,
+               shape: shape,
+               selected: selected,
+               autofocus: autofocus,
+               visualDensity: visualDensity,
+               focusNode: field.focusNode,
+               enableFeedback: enableFeedback,
+               radioScaleFactor: radioScaleFactor,
+             ),
            );
          },
        );

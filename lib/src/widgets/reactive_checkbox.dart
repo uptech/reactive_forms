@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// This is a convenience widget that wraps a [Checkbox] widget in a
@@ -65,13 +65,12 @@ class ReactiveCheckbox extends ReactiveFocusableFormField<bool, bool> {
              shape: shape,
              side: side,
              isError: field.errorText != null,
-             onChanged:
-                 field.control.enabled
-                     ? (value) {
-                       field.didChange(value);
-                       onChanged?.call(field.control);
-                     }
-                     : null,
+             onChanged: field.control.enabled
+                 ? (value) {
+                     field.didChange(value);
+                     onChanged?.call(field.control);
+                   }
+                 : null,
              semanticLabel: semanticLabel,
            );
          },

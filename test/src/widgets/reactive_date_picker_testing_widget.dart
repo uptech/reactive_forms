@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ReactiveDatePickerTestingWidget<T> extends StatelessWidget {
@@ -30,16 +30,17 @@ class ReactiveDatePickerTestingWidget<T> extends StatelessWidget {
             initialDate: initialDate,
             firstDate: firstDate,
             lastDate: lastDate,
-            builder: (
-              BuildContext context,
-              ReactiveDatePickerDelegate<T> picker,
-              Widget? child,
-            ) {
-              return TextButton(
-                onPressed: picker.showPicker,
-                child: const Text('Select Birthday'),
-              );
-            },
+            builder:
+                (
+                  BuildContext context,
+                  ReactiveDatePickerDelegate<T> picker,
+                  Widget? child,
+                ) {
+                  return TextButton(
+                    onPressed: picker.showPicker,
+                    child: const Text('Select Birthday'),
+                  );
+                },
           ),
         ),
       ),

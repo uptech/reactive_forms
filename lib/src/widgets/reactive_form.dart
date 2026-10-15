@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:reactive_forms/src/widgets/form_control_inherited_notifier.dart';
 
@@ -61,11 +61,10 @@ class ReactiveForm<T> extends StatelessWidget {
           ?.control;
     }
 
-    final element =
-        context
-            .getElementForInheritedWidgetOfExactType<
-              FormControlInheritedStreamer
-            >();
+    final element = context
+        .getElementForInheritedWidgetOfExactType<
+          FormControlInheritedStreamer
+        >();
     return element == null
         ? null
         : (element.widget as FormControlInheritedStreamer).control;
@@ -82,11 +81,10 @@ class ReactiveForm<T> extends StatelessWidget {
         builder: (context, snapshot) {
           return PopScope<T>(
             canPop: canPop?.call(formGroup) ?? true,
-            onPopInvokedWithResult:
-                onPopInvokedWithResult != null
-                    ? (didPop, result) =>
-                        onPopInvokedWithResult!(formGroup, didPop, result)
-                    : null,
+            onPopInvokedWithResult: onPopInvokedWithResult != null
+                ? (didPop, result) =>
+                      onPopInvokedWithResult!(formGroup, didPop, result)
+                : null,
             child: child,
           );
         },

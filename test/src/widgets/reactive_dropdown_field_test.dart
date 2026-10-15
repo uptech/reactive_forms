@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_dropdown_testing_widget.dart';
@@ -18,8 +18,10 @@ void main() {
       );
 
       // When: gets dropdown
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -40,8 +42,10 @@ void main() {
       );
 
       // When: gets dropdown
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -62,8 +66,10 @@ void main() {
       );
 
       // When: gets dropdown
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -90,8 +96,10 @@ void main() {
         await tester.pump();
 
         // Then: dropdown value is equals to control
-        final dropdownType =
-            DropdownButton<String>(items: null, onChanged: null).runtimeType;
+        final dropdownType = DropdownButton<String>(
+          items: null,
+          onChanged: null,
+        ).runtimeType;
         final dropdown = tester.firstWidget<DropdownButton<String>>(
           find.byType(dropdownType),
         );
@@ -118,8 +126,10 @@ void main() {
         await tester.pump();
 
         // Then: dropdown value is equals to control
-        final dropdownType =
-            DropdownButton<String>(items: null, onChanged: null).runtimeType;
+        final dropdownType = DropdownButton<String>(
+          items: null,
+          onChanged: null,
+        ).runtimeType;
         final dropdown = tester.firstWidget<DropdownButton<String>>(
           find.byType(dropdownType),
         );
@@ -140,8 +150,10 @@ void main() {
       );
 
       // Then: the dropdown is disabled
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -162,8 +174,10 @@ void main() {
       );
 
       // Then: the dropdown is disabled
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -188,8 +202,10 @@ void main() {
       );
 
       // Then: the dropdown is disabled
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -212,8 +228,10 @@ void main() {
       await tester.pump();
 
       // Then: the dropdown is disabled
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -236,8 +254,10 @@ void main() {
       await tester.pump();
 
       // Then: the dropdown is enable
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -270,8 +290,10 @@ void main() {
       );
 
       // When: callback on changed in widget
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -305,8 +327,10 @@ void main() {
       );
 
       // When: callback on tap in widget
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -340,8 +364,10 @@ void main() {
 
       // Then: dropdown disabledHint value is equals to selectedItemBuilder
       // equivalent item
-      final dropdownType =
-          DropdownButton<String>(items: null, onChanged: null).runtimeType;
+      final dropdownType = DropdownButton<String>(
+        items: null,
+        onChanged: null,
+      ).runtimeType;
       final dropdown = tester.firstWidget<DropdownButton<String>>(
         find.byType(dropdownType),
       );
@@ -380,8 +406,10 @@ void main() {
 
         // Then: dropdown disabledHint value is equals to selectedItemBuilder
         // equivalent item
-        final dropdownType =
-            DropdownButton<String>(items: null, onChanged: null).runtimeType;
+        final dropdownType = DropdownButton<String>(
+          items: null,
+          onChanged: null,
+        ).runtimeType;
         final dropdown = tester.firstWidget<DropdownButton<String>>(
           find.byType(dropdownType),
         );

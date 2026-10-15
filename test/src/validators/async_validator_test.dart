@@ -112,118 +112,105 @@ void main() {
       },
     );
 
-    test(
-      'DebouncedAsyncValidator with custom debounce time returns error on failure',
-      () {
-        fakeAsync((async) {
-          final control = FormControl<String>(
-            asyncValidators: [
-              Validators.debounced(
-                Validators.delegateAsync(
-                  (control) => Future.delayed(
-                    const Duration(milliseconds: 100),
-                    () => {'custom_error': true},
-                  ),
+    test('DebouncedAsyncValidator with custom debounce time returns error on failure', () {
+      fakeAsync((async) {
+        final control = FormControl<String>(
+          asyncValidators: [
+            Validators.debounced(
+              Validators.delegateAsync(
+                (control) => Future.delayed(
+                  const Duration(milliseconds: 100),
+                  () => {'custom_error': true},
                 ),
-                500, // Custom debounce time
               ),
-            ],
-          );
+              500, // Custom debounce time
+            ),
+          ],
+        );
 
-          control.value = 'some value';
+        control.value = 'some value';
 
-          async.elapse(const Duration(milliseconds: 500));
-          expect(control.pending, true);
+        async.elapse(const Duration(milliseconds: 500));
+        expect(control.pending, true);
 
-          async.elapse(const Duration(milliseconds: 100));
-          expect(control.pending, false);
-          expect(control.hasError('custom_error'), true);
-        });
-      },
-    );
+        async.elapse(const Duration(milliseconds: 100));
+        expect(control.pending, false);
+        expect(control.hasError('custom_error'), true);
+      });
+    });
 
-    test(
-      'Multiple value changes within debounce period trigger validation only once',
-      () {
-        fakeAsync((async) {
-          var validationCount = 0;
-          final control = FormControl<String>(
-            asyncValidators: [
+    test('Multiple value changes within debounce period trigger validation only once', () {
+      fakeAsync((async) {
+        var validationCount = 0;
+        final control = FormControl<String>(
+          asyncValidators: [
+            Validators.delegateAsync(
+              (control) =>
+                  Future.delayed(const Duration(milliseconds: 100), () {
+                    validationCount++;
+                    return null;
+                  }),
+              debounceTime: 200,
+            ),
+          ],
+        );
+
+        control.value = 'value1';
+        async.elapse(const Duration(milliseconds: 50));
+        control.value = 'value2';
+        async.elapse(const Duration(milliseconds: 50));
+        control.value = 'value3';
+        async.elapse(const Duration(milliseconds: 50));
+
+        // Elapse debounce time
+        async.elapse(const Duration(milliseconds: 200));
+        expect(control.pending, true);
+
+        // Elapse validator delay
+        async.elapse(const Duration(milliseconds: 100));
+        expect(control.pending, false);
+        expect(validationCount, 1);
+      });
+    });
+
+    test('Multiple value changes with DebouncedAsyncValidator trigger validation only once', () {
+      fakeAsync((async) {
+        var validationCount = 0;
+        final control = FormControl<String>(
+          asyncValidators: [
+            Validators.debounced(
               Validators.delegateAsync(
                 (control) =>
                     Future.delayed(const Duration(milliseconds: 100), () {
                       validationCount++;
                       return null;
                     }),
-                debounceTime: 200,
               ),
-            ],
-          );
+              500, // Custom debounce time
+            ),
+          ],
+        );
 
-          control.value = 'value1';
-          async.elapse(const Duration(milliseconds: 50));
-          control.value = 'value2';
-          async.elapse(const Duration(milliseconds: 50));
-          control.value = 'value3';
-          async.elapse(const Duration(milliseconds: 50));
+        control.value = 'value1';
+        async.elapse(const Duration(milliseconds: 100));
+        control.value = 'value2';
+        async.elapse(const Duration(milliseconds: 100));
+        control.value = 'value3';
 
-          // Elapse debounce time
-          async.elapse(const Duration(milliseconds: 200));
-          expect(control.pending, true);
+        // Elapse custom debounce time
+        async.elapse(const Duration(milliseconds: 500));
+        expect(control.pending, true, reason: 'Control should be pending');
 
-          // Elapse validator delay
-          async.elapse(const Duration(milliseconds: 100));
-          expect(control.pending, false);
-          expect(validationCount, 1);
-        });
-      },
-    );
-
-    test(
-      'Multiple value changes with DebouncedAsyncValidator trigger validation only once',
-      () {
-        fakeAsync((async) {
-          var validationCount = 0;
-          final control = FormControl<String>(
-            asyncValidators: [
-              Validators.debounced(
-                Validators.delegateAsync(
-                  (control) =>
-                      Future.delayed(const Duration(milliseconds: 100), () {
-                        validationCount++;
-                        return null;
-                      }),
-                ),
-                500, // Custom debounce time
-              ),
-            ],
-          );
-
-          control.value = 'value1';
-          async.elapse(const Duration(milliseconds: 100));
-          control.value = 'value2';
-          async.elapse(const Duration(milliseconds: 100));
-          control.value = 'value3';
-
-          // Elapse custom debounce time
-          async.elapse(const Duration(milliseconds: 500));
-          expect(control.pending, true, reason: 'Control should be pending');
-
-          // Elapse validator delay
-          async.elapse(const Duration(milliseconds: 100));
-          expect(
-            control.pending,
-            false,
-            reason: 'Control should not be pending',
-          );
-          expect(
-            validationCount,
-            1,
-            reason: 'Validation should be triggered once',
-          );
-        });
-      },
-    );
+        // Elapse validator delay
+        async.elapse(const Duration(milliseconds: 100));
+        expect(control.pending, false, reason: 'Control should not be pending');
+        expect(
+          validationCount,
+          1,
+          reason: 'Validation should be triggered once',
+        );
+      });
+    });
 
     test('delegateAsync with debounceTime 0 executes immediately', () {
       fakeAsync((async) {
@@ -303,17 +290,14 @@ void main() {
       },
     );
 
-    test(
-      'DebouncedAsyncValidator throws AssertionError if debounce time is negative',
-      () {
-        expect(
-          () => DebouncedAsyncValidator(
-            Validators.delegateAsync((control) async => null),
-            -1,
-          ),
-          throwsAssertionError,
-        );
-      },
-    );
+    test('DebouncedAsyncValidator throws AssertionError if debounce time is negative', () {
+      expect(
+        () => DebouncedAsyncValidator(
+          Validators.delegateAsync((control) async => null),
+          -1,
+        ),
+        throwsAssertionError,
+      );
+    });
   });
 }

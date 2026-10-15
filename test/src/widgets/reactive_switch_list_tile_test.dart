@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_switch_list_tile_testing_widget.dart';
@@ -18,11 +18,10 @@ void main() {
         );
 
         // When: gets switchListTile value
-        final switches =
-            tester
-                .widgetList(find.byType(SwitchListTile))
-                .map((widget) => widget as SwitchListTile)
-                .toList();
+        final switches = tester
+            .widgetList(find.byType(SwitchListTile))
+            .map((widget) => widget as SwitchListTile)
+            .toList();
 
         // Then: value equals to false
         for (final switchWidget in switches) {
@@ -45,11 +44,10 @@ void main() {
         );
 
         // When: gets switchListTile value
-        final switches =
-            tester
-                .widgetList(find.byType(SwitchListTile))
-                .map((widget) => widget as SwitchListTile)
-                .toList();
+        final switches = tester
+            .widgetList(find.byType(SwitchListTile))
+            .map((widget) => widget as SwitchListTile)
+            .toList();
 
         // Then: value equals to control value
         for (final switchWidget in switches) {
@@ -72,11 +70,10 @@ void main() {
         );
 
         // When: gets switchListTile value
-        final switches =
-            tester
-                .widgetList(find.byType(SwitchListTile))
-                .map((widget) => widget as SwitchListTile)
-                .toList();
+        final switches = tester
+            .widgetList(find.byType(SwitchListTile))
+            .map((widget) => widget as SwitchListTile)
+            .toList();
 
         // Then: value equals to false
         for (final switchWidget in switches) {
@@ -103,11 +100,10 @@ void main() {
         await tester.pump();
 
         // Then: value equals to true
-        final switches =
-            tester
-                .widgetList(find.byType(SwitchListTile))
-                .map((widget) => widget as SwitchListTile)
-                .toList();
+        final switches = tester
+            .widgetList(find.byType(SwitchListTile))
+            .map((widget) => widget as SwitchListTile)
+            .toList();
 
         for (final switchWidget in switches) {
           expect(switchWidget.value, true);
@@ -133,11 +129,10 @@ void main() {
         await tester.pump();
 
         // Then: value equals to false
-        final switches =
-            tester
-                .widgetList(find.byType(SwitchListTile))
-                .map((widget) => widget as SwitchListTile)
-                .toList();
+        final switches = tester
+            .widgetList(find.byType(SwitchListTile))
+            .map((widget) => widget as SwitchListTile)
+            .toList();
 
         for (final switchWidget in switches) {
           expect(switchWidget.value, false);
@@ -157,11 +152,10 @@ void main() {
       await tester.pumpWidget(ReactiveSwitchListTileTestingWidget(form: form));
 
       // Then: the switchListTile is disabled
-      final switches =
-          tester
-              .widgetList(find.byType(SwitchListTile))
-              .map((widget) => widget as SwitchListTile)
-              .toList();
+      final switches = tester
+          .widgetList(find.byType(SwitchListTile))
+          .map((widget) => widget as SwitchListTile)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged, null);
@@ -182,11 +176,10 @@ void main() {
       await tester.pump();
 
       // Then: the switchListTile is disabled
-      final switches =
-          tester
-              .widgetList(find.byType(SwitchListTile))
-              .map((widget) => widget as SwitchListTile)
-              .toList();
+      final switches = tester
+          .widgetList(find.byType(SwitchListTile))
+          .map((widget) => widget as SwitchListTile)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged, null);
@@ -209,11 +202,10 @@ void main() {
       await tester.pump();
 
       // Then: the switchListTile is disabled
-      final switches =
-          tester
-              .widgetList(find.byType(SwitchListTile))
-              .map((widget) => widget as SwitchListTile)
-              .toList();
+      final switches = tester
+          .widgetList(find.byType(SwitchListTile))
+          .map((widget) => widget as SwitchListTile)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged != null, true);
@@ -243,12 +235,11 @@ void main() {
       );
 
       // When: user change switch value
-      final switchWidget =
-          tester
-              .widgetList<SwitchListTile>(find.byType(SwitchListTile))
-              .map((widget) => widget)
-              .toList()
-              .first;
+      final switchWidget = tester
+          .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+          .map((widget) => widget)
+          .toList()
+          .first;
       switchWidget.onChanged!(true);
 
       // Then: onChanged callback is called
@@ -284,11 +275,10 @@ void main() {
       );
 
       // When: user change switch value
-      final adaptativeSwitchWidget =
-          tester
-              .widgetList<SwitchListTile>(find.byType(SwitchListTile))
-              .map((widget) => widget)
-              .last;
+      final adaptativeSwitchWidget = tester
+          .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+          .map((widget) => widget)
+          .last;
       adaptativeSwitchWidget.onChanged!(true);
 
       // Then: onChanged callback is called
@@ -352,8 +342,9 @@ void main() {
 
       // Expect: field has the provided focus node and is the same of the
       // focus controller
-      final widget =
-          tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).last;
+      final widget = tester
+          .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+          .last;
       expect(widget.focusNode, control.focusController?.focusNode);
     },
   );
@@ -378,8 +369,9 @@ void main() {
     );
 
     // Expect: field has the provided focus node
-    final widgets =
-        tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).toList();
+    final widgets = tester
+        .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+        .toList();
 
     expect(widgets.first.focusNode, focusNode);
     expect(widgets.last.focusNode, adaptativeFocusNode);
@@ -425,8 +417,9 @@ void main() {
     await tester.pumpWidget(ReactiveSwitchListTileTestingWidget(form: form));
 
     // And: the field has focused
-    var widget =
-        tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).last;
+    var widget = tester
+        .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+        .last;
 
     widget.focusNode?.requestFocus();
     await tester.pump();
@@ -437,8 +430,9 @@ void main() {
     await tester.pump();
 
     // Then: the reactive widget is unfocused
-    widget =
-        tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).last;
+    widget = tester
+        .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+        .last;
 
     expect(widget.focusNode?.hasFocus, false);
   });
@@ -481,8 +475,9 @@ void main() {
     await tester.pumpWidget(ReactiveSwitchListTileTestingWidget(form: form));
 
     // Expect: that the field has no focus
-    var widget =
-        tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).last;
+    var widget = tester
+        .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+        .last;
 
     expect(widget.focusNode?.hasFocus, false);
 
@@ -491,8 +486,9 @@ void main() {
     await tester.pump();
 
     // Then: the reactive field is focused
-    widget =
-        tester.widgetList<SwitchListTile>(find.byType(SwitchListTile)).last;
+    widget = tester
+        .widgetList<SwitchListTile>(find.byType(SwitchListTile))
+        .last;
 
     expect(widget.focusNode?.hasFocus, true);
   });

@@ -6,8 +6,9 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 /// Signature of a function that receives a control and returns a Future
 /// that emits validation errors if present, otherwise null.
-typedef AsyncValidatorFunction =
-    Future<Map<String, dynamic>?> Function(AbstractControl<dynamic> control);
+typedef AsyncValidatorFunction = Future<Map<String, dynamic>?> Function(
+  AbstractControl<dynamic> control,
+);
 
 /// Validator that delegates the validation to an external function.
 class DelegateAsyncValidator extends AsyncValidator<dynamic> {

@@ -4,14 +4,15 @@
 
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// Signature for building the widget representing the form field.
 ///
 /// Used by [FormField.builder].
-typedef ReactiveFormFieldBuilder<T, K> =
-    Widget Function(ReactiveFormFieldState<T, K> field);
+typedef ReactiveFormFieldBuilder<T, K> = Widget Function(
+  ReactiveFormFieldState<T, K> field,
+);
 
 /// Signature for customize when to show errors in a widget.
 typedef ShowErrorsFunction<T> = bool Function(FormControl<T> control);
@@ -69,13 +70,12 @@ class ReactiveFormField<ModelDataType, ViewDataType> extends StatefulWidget {
     this.showErrors,
     this.validationMessages,
     this.focusNode,
-    required ReactiveFormFieldBuilder<ModelDataType, ViewDataType> builder,
+    required this._builder,
   }) : assert(
          (formControlName != null && formControl == null) ||
              (formControlName == null && formControl != null),
          'Must provide a formControlName or a formControl, but not both at the same time.',
-       ),
-       _builder = builder;
+       );
 
   @override
   ReactiveFormFieldState<ModelDataType, ViewDataType> createState() =>

@@ -90,14 +90,12 @@ void main() {
       expect(
         password.hasError(containsLettersValidationMessage),
         true,
-        reason:
-            'password does not contains the containsLettersValidationMessage error',
+        reason: 'password does not contains the containsLettersValidationMessage error',
       );
       expect(
         password.hasError(containsNumbersValidationMessage),
         true,
-        reason:
-            'password does not contains the containsNumbersValidationMessage error',
+        reason: 'password does not contains the containsNumbersValidationMessage error',
       );
     });
 
@@ -131,8 +129,7 @@ void main() {
       expect(
         password.hasError(containsLettersValidationMessage),
         true,
-        reason:
-            'password does not contains the containsLettersValidationMessage error',
+        reason: 'password does not contains the containsLettersValidationMessage error',
       );
       expect(
         password.hasError(containsNumbersValidationMessage),

@@ -47,8 +47,8 @@ class ReactiveFormConfig extends InheritedWidget {
   ///
   /// If no model is founded, then `null` is returned.
   static ReactiveFormConfig? of(BuildContext context) {
-    final element =
-        context.getElementForInheritedWidgetOfExactType<ReactiveFormConfig>();
+    final element = context
+        .getElementForInheritedWidgetOfExactType<ReactiveFormConfig>();
 
     return element != null ? (element.widget as ReactiveFormConfig) : null;
   }

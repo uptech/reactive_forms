@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// Signature for callbacks that are used to get
@@ -72,8 +72,9 @@ class ReactiveSlider extends ReactiveFocusableFormField<num, double> {
              secondaryTrackValue: secondaryTrackValue,
              secondaryActiveColor: secondaryActiveColor,
              overlayColor: overlayColor,
-             label:
-                 labelBuilder != null ? labelBuilder(field.value ?? min) : null,
+             label: labelBuilder != null
+                 ? labelBuilder(field.value ?? min)
+                 : null,
              activeColor: activeColor,
              inactiveColor: inactiveColor,
              thumbColor: thumbColor,
@@ -83,19 +84,18 @@ class ReactiveSlider extends ReactiveFocusableFormField<num, double> {
              focusNode: field.focusNode,
              padding: padding,
              allowedInteraction: allowedInteraction,
-             onChangeEnd:
-                 onChangeEnd != null ? (_) => onChangeEnd(field.control) : null,
-             onChangeStart:
-                 onChangeStart != null
-                     ? (_) => onChangeStart(field.control)
-                     : null,
-             onChanged:
-                 field.control.enabled
-                     ? (value) {
-                       field.didChange(value);
-                       onChanged?.call(field.control);
-                     }
-                     : null,
+             onChangeEnd: onChangeEnd != null
+                 ? (_) => onChangeEnd(field.control)
+                 : null,
+             onChangeStart: onChangeStart != null
+                 ? (_) => onChangeStart(field.control)
+                 : null,
+             onChanged: field.control.enabled
+                 ? (value) {
+                     field.didChange(value);
+                     onChanged?.call(field.control);
+                   }
+                 : null,
            );
          },
        );

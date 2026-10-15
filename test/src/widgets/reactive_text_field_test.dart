@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_text_field_testing_widget.dart';
@@ -268,8 +268,8 @@ void main() {
       await tester.pumpWidget(
         ReactiveTextFieldTestingWidget<String>(
           form: form,
-          showErrors:
-              (control) => control.invalid && control.touched && control.dirty,
+          showErrors: (control) =>
+              control.invalid && control.touched && control.dirty,
         ),
       );
 
@@ -431,11 +431,9 @@ void main() {
       );
 
       // When: get the state of the text field
-      final state =
-          tester.allStates.firstWhere(
-                (state) => state.widget is ReactiveTextField<int>,
-              )
-              as ReactiveFormFieldState<int, String>;
+      final state = tester.allStates.firstWhere(
+        (state) => state.widget is ReactiveTextField<int>,
+      ) as ReactiveFormFieldState<int, String>;
 
       // Then: the value accessor is IntValueAccessor
       expect(state.valueAccessor, isInstanceOf<IntValueAccessor>());
@@ -456,11 +454,9 @@ void main() {
         );
 
         // When: get the state of the text field
-        final state =
-            tester.allStates.firstWhere(
-                  (state) => state.widget is ReactiveTextField<double>,
-                )
-                as ReactiveFormFieldState<double, String>;
+        final state = tester.allStates.firstWhere(
+          (state) => state.widget is ReactiveTextField<double>,
+        ) as ReactiveFormFieldState<double, String>;
 
         // Then: the value accessor is DoubleValueAccessor
         expect(state.valueAccessor, isInstanceOf<DoubleValueAccessor>());
@@ -482,11 +478,9 @@ void main() {
         );
 
         // When: get the state of the text field
-        final state =
-            tester.allStates.firstWhere(
-                  (state) => state.widget is ReactiveTextField<DateTime>,
-                )
-                as ReactiveFormFieldState<DateTime, String>;
+        final state = tester.allStates.firstWhere(
+          (state) => state.widget is ReactiveTextField<DateTime>,
+        ) as ReactiveFormFieldState<DateTime, String>;
 
         // Then: the value accessor is DateTimeValueAccessor
         expect(state.valueAccessor, isInstanceOf<DateTimeValueAccessor>());
@@ -508,11 +502,9 @@ void main() {
         );
 
         // When: get the state of the text field
-        final state =
-            tester.allStates.firstWhere(
-                  (state) => state.widget is ReactiveTextField<TimeOfDay>,
-                )
-                as ReactiveFormFieldState<TimeOfDay, String>;
+        final state = tester.allStates.firstWhere(
+          (state) => state.widget is ReactiveTextField<TimeOfDay>,
+        ) as ReactiveFormFieldState<TimeOfDay, String>;
 
         // Then: the value accessor is TimeOfDayValueAccessor
         expect(state.valueAccessor, isInstanceOf<TimeOfDayValueAccessor>());

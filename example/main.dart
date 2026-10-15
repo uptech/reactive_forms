@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 void main() {
@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Reactive Forms Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const LoginPage(),
     );
   }
@@ -46,9 +44,8 @@ class _LoginPageState extends State<LoginPage> {
       print('Password: ${form.control('password').value}');
       // You would typically navigate to another screen here
       // or make an API call.
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Login Successful!')),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Login Successful!')));
     } else {
       // Mark fields as touched to show errors if not already shown
       form.markAllAsTouched();
@@ -61,9 +58,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
+      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         // Use ReactiveForm widget to bind the FormGroup

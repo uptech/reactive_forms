@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_switch_testing_widget.dart';
@@ -16,11 +16,10 @@ void main() {
       await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
       // When: gets switch value
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       // Then: value equals to false
       for (final switchWidget in switches) {
@@ -40,11 +39,10 @@ void main() {
       await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
       // When: gets switch value
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       // Then: value equals to control value
       for (final switchWidget in switches) {
@@ -64,11 +62,10 @@ void main() {
       await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
       // When: gets switch value
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       // Then: value equals to false
       for (final switchWidget in switches) {
@@ -92,11 +89,10 @@ void main() {
         await tester.pump();
 
         // Then: value equals to true
-        final switches =
-            tester
-                .widgetList<Switch>(find.byType(Switch))
-                .map((widget) => widget)
-                .toList();
+        final switches = tester
+            .widgetList<Switch>(find.byType(Switch))
+            .map((widget) => widget)
+            .toList();
 
         for (final switchWidget in switches) {
           expect(switchWidget.value, true);
@@ -120,11 +116,10 @@ void main() {
         await tester.pump();
 
         // Then: value equals to false
-        final switches =
-            tester
-                .widgetList<Switch>(find.byType(Switch))
-                .map((widget) => widget)
-                .toList();
+        final switches = tester
+            .widgetList<Switch>(find.byType(Switch))
+            .map((widget) => widget)
+            .toList();
 
         for (final switchWidget in switches) {
           expect(switchWidget.value, false);
@@ -144,11 +139,10 @@ void main() {
       await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
       // Then: the switch is disabled
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged, null);
@@ -169,11 +163,10 @@ void main() {
       await tester.pump();
 
       // Then: the switch is disabled
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged, null);
@@ -194,11 +187,10 @@ void main() {
       await tester.pump();
 
       // Then: the switch is disabled
-      final switches =
-          tester
-              .widgetList<Switch>(find.byType(Switch))
-              .map((widget) => widget)
-              .toList();
+      final switches = tester
+          .widgetList<Switch>(find.byType(Switch))
+          .map((widget) => widget)
+          .toList();
 
       for (final switchWidget in switches) {
         expect(switchWidget.onChanged != null, true);
@@ -216,11 +208,10 @@ void main() {
     await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
     // Expect: that the field has no focus
-    var switches =
-        tester
-            .widgetList<Switch>(find.byType(Switch))
-            .map((widget) => widget)
-            .toList();
+    var switches = tester
+        .widgetList<Switch>(find.byType(Switch))
+        .map((widget) => widget)
+        .toList();
 
     for (final switchWidget in switches) {
       expect(switchWidget.focusNode?.hasFocus, false);
@@ -231,11 +222,10 @@ void main() {
     await tester.pump();
 
     // // Then: the reactive field is focused
-    switches =
-        tester
-            .widgetList<Switch>(find.byType(Switch))
-            .map((widget) => widget)
-            .toList();
+    switches = tester
+        .widgetList<Switch>(find.byType(Switch))
+        .map((widget) => widget)
+        .toList();
 
     expect(switches.last.focusNode?.hasFocus, true);
   });
@@ -250,11 +240,10 @@ void main() {
     await tester.pumpWidget(ReactiveSwitchTestingWidget(form: form));
 
     // And: the field has focused
-    var switches =
-        tester
-            .widgetList<Switch>(find.byType(Switch))
-            .map((widget) => widget)
-            .toList();
+    var switches = tester
+        .widgetList<Switch>(find.byType(Switch))
+        .map((widget) => widget)
+        .toList();
 
     switches.first.focusNode?.requestFocus();
     await tester.pump();
@@ -269,11 +258,10 @@ void main() {
     await tester.pump();
 
     // Then: the reactive field is unfocused
-    switches =
-        tester
-            .widgetList<Switch>(find.byType(Switch))
-            .map((widget) => widget)
-            .toList();
+    switches = tester
+        .widgetList<Switch>(find.byType(Switch))
+        .map((widget) => widget)
+        .toList();
 
     for (final switchWidget in switches) {
       expect(switchWidget.focusNode?.hasFocus, false);
@@ -389,12 +377,11 @@ void main() {
     );
 
     // When: user change switch value
-    final switchWidget =
-        tester
-            .widgetList<Switch>(find.byType(Switch))
-            .map((widget) => widget)
-            .toList()
-            .first;
+    final switchWidget = tester
+        .widgetList<Switch>(find.byType(Switch))
+        .map((widget) => widget)
+        .toList()
+        .first;
     switchWidget.onChanged!(true);
 
     // Then: onChanged callback is called

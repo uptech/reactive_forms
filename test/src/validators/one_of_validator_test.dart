@@ -11,7 +11,7 @@ void main() {
       'oneOf': {
         'requiredOneOf': required,
         'actual': actual,
-        if (caseSensitive != null) 'caseSensitive': caseSensitive,
+        'caseSensitive': ?caseSensitive,
       },
     };
 
@@ -30,77 +30,65 @@ void main() {
       },
     );
 
-    test(
-      'FormControl is invalid if value is not in collection (String, case-sensitive)',
-      () {
-        final collection = ['apple', 'banana'];
-        final validator = Validators.oneOf(collection);
-        final control = FormControl<String>(
-          value: 'orange',
-          validators: [validator],
-        );
+    test('FormControl is invalid if value is not in collection (String, case-sensitive)', () {
+      final collection = ['apple', 'banana'];
+      final validator = Validators.oneOf(collection);
+      final control = FormControl<String>(
+        value: 'orange',
+        validators: [validator],
+      );
 
-        expect(control.valid, false);
-        expect(
-          control.errors,
-          errorDetails(collection, 'orange', caseSensitive: true),
-        );
-      },
-    );
+      expect(control.valid, false);
+      expect(
+        control.errors,
+        errorDetails(collection, 'orange', caseSensitive: true),
+      );
+    });
 
-    test(
-      'FormControl is invalid if value is in collection but different case (String, case-sensitive)',
-      () {
-        final collection = ['apple', 'banana'];
-        final validator = Validators.oneOf(collection);
-        final control = FormControl<String>(
-          value: 'Apple',
-          validators: [validator],
-        );
+    test('FormControl is invalid if value is in collection but different case (String, case-sensitive)', () {
+      final collection = ['apple', 'banana'];
+      final validator = Validators.oneOf(collection);
+      final control = FormControl<String>(
+        value: 'Apple',
+        validators: [validator],
+      );
 
-        expect(control.valid, false);
-        expect(
-          control.errors,
-          errorDetails(collection, 'Apple', caseSensitive: true),
-        );
-      },
-    );
+      expect(control.valid, false);
+      expect(
+        control.errors,
+        errorDetails(collection, 'Apple', caseSensitive: true),
+      );
+    });
 
-    test(
-      'FormControl is valid if value is in collection (String, case-insensitive)',
-      () {
-        final validator = Validators.oneOf([
-          'Apple',
-          'Banana',
-        ], caseSensitive: false);
-        final control = FormControl<String>(
-          value: 'apple',
-          validators: [validator],
-        );
+    test('FormControl is valid if value is in collection (String, case-insensitive)', () {
+      final validator = Validators.oneOf([
+        'Apple',
+        'Banana',
+      ], caseSensitive: false);
+      final control = FormControl<String>(
+        value: 'apple',
+        validators: [validator],
+      );
 
-        expect(control.valid, true);
-        control.value = 'BANANA';
-        expect(control.valid, true);
-      },
-    );
+      expect(control.valid, true);
+      control.value = 'BANANA';
+      expect(control.valid, true);
+    });
 
-    test(
-      'FormControl is invalid if value is not in collection (String, case-insensitive)',
-      () {
-        final collection = ['Apple', 'Banana'];
-        final validator = Validators.oneOf(collection, caseSensitive: false);
-        final control = FormControl<String>(
-          value: 'Orange',
-          validators: [validator],
-        );
+    test('FormControl is invalid if value is not in collection (String, case-insensitive)', () {
+      final collection = ['Apple', 'Banana'];
+      final validator = Validators.oneOf(collection, caseSensitive: false);
+      final control = FormControl<String>(
+        value: 'Orange',
+        validators: [validator],
+      );
 
-        expect(control.valid, false);
-        expect(
-          control.errors,
-          errorDetails(collection, 'Orange', caseSensitive: false),
-        );
-      },
-    );
+      expect(control.valid, false);
+      expect(
+        control.errors,
+        errorDetails(collection, 'Orange', caseSensitive: false),
+      );
+    });
 
     test('FormControl is valid if value is in collection (int)', () {
       final validator = Validators.oneOf([1, 2, 3]);
@@ -153,23 +141,20 @@ void main() {
       expect(control.valid, true);
     });
 
-    test(
-      'FormControl is invalid with mixed types in collection and value not present',
-      () {
-        final collection = [1, 'apple', true];
-        final validator = Validators.oneOf(collection);
-        final control = FormControl<dynamic>(
-          value: 'banana',
-          validators: [validator],
-        );
+    test('FormControl is invalid with mixed types in collection and value not present', () {
+      final collection = [1, 'apple', true];
+      final validator = Validators.oneOf(collection);
+      final control = FormControl<dynamic>(
+        value: 'banana',
+        validators: [validator],
+      );
 
-        expect(control.valid, false);
-        expect(
-          control.errors,
-          errorDetails(collection, 'banana', caseSensitive: true),
-        );
-      },
-    );
+      expect(control.valid, false);
+      expect(
+        control.errors,
+        errorDetails(collection, 'banana', caseSensitive: true),
+      );
+    });
 
     test('FormControl is invalid if collection is empty', () {
       final collection = <dynamic>[];

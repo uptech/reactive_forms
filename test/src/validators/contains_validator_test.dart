@@ -33,50 +33,41 @@ void main() {
       },
     );
 
-    test(
-      'Compare a List of Strings with another that contains all of them (valid)',
-      () {
-        final control = FormControl<List<String>>(
-          value: ['1', '2', '3', '4'],
-          validators: [
-            Validators.contains(['1', '3']),
-          ],
-        );
+    test('Compare a List of Strings with another that contains all of them (valid)', () {
+      final control = FormControl<List<String>>(
+        value: ['1', '2', '3', '4'],
+        validators: [
+          Validators.contains(['1', '3']),
+        ],
+      );
 
-        // Expect: control valid
-        expect(control.valid, true);
-      },
-    );
+      // Expect: control valid
+      expect(control.valid, true);
+    });
 
-    test(
-      'Compare a list of numbers with another that contains all of them (valid)',
-      () {
-        final control = FormControl<List<int>>(
-          value: [1, 2, 3, 4],
-          validators: [
-            Validators.contains([1, 3]),
-          ],
-        );
+    test('Compare a list of numbers with another that contains all of them (valid)', () {
+      final control = FormControl<List<int>>(
+        value: [1, 2, 3, 4],
+        validators: [
+          Validators.contains([1, 3]),
+        ],
+      );
 
-        // Expect: control invalid
-        expect(control.valid, true);
-      },
-    );
+      // Expect: control invalid
+      expect(control.valid, true);
+    });
 
-    test(
-      'Compare a list of numbers with another that contains a part of them (invalid)',
-      () {
-        final control = FormControl<List<int>>(
-          value: [1, 2, 3, 4],
-          validators: [
-            Validators.contains([1, 3, 5]),
-          ],
-        );
+    test('Compare a list of numbers with another that contains a part of them (invalid)', () {
+      final control = FormControl<List<int>>(
+        value: [1, 2, 3, 4],
+        validators: [
+          Validators.contains([1, 3, 5]),
+        ],
+      );
 
-        // Expect: control invalid
-        expect(control.valid, false);
-      },
-    );
+      // Expect: control invalid
+      expect(control.valid, false);
+    });
 
     test(
       'Compare a list of emails with another that contains numbers (invalid)',
@@ -97,23 +88,20 @@ void main() {
       },
     );
 
-    test(
-      'Compare a list of numbers with another that contains all of them (valid)',
-      () {
-        final control = FormArray<int>(
-          [
-            FormControl<int>(value: 1),
-            FormControl<int>(value: 2),
-            FormControl<int>(value: 3),
-          ],
-          validators: [
-            Validators.contains([1, 3]),
-          ],
-        );
+    test('Compare a list of numbers with another that contains all of them (valid)', () {
+      final control = FormArray<int>(
+        [
+          FormControl<int>(value: 1),
+          FormControl<int>(value: 2),
+          FormControl<int>(value: 3),
+        ],
+        validators: [
+          Validators.contains([1, 3]),
+        ],
+      );
 
-        // Expect: control invalid
-        expect(control.valid, true);
-      },
-    );
+      // Expect: control invalid
+      expect(control.valid, true);
+    });
   });
 }

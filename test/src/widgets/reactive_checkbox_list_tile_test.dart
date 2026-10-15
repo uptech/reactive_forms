@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_checkbox_list_tile_testing_widget.dart';
@@ -377,12 +377,11 @@ void main() {
       );
 
       // When: user change switch value
-      final widget =
-          tester
-              .widgetList<Checkbox>(find.byType(Checkbox))
-              .map((widget) => widget)
-              .toList()
-              .first;
+      final widget = tester
+          .widgetList<Checkbox>(find.byType(Checkbox))
+          .map((widget) => widget)
+          .toList()
+          .first;
       widget.onChanged!(true);
 
       // Then: onChanged callback is called

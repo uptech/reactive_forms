@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// A builder that builds a widget responsible to decide when to show
@@ -13,12 +13,11 @@ import 'package:reactive_forms/reactive_forms.dart';
 /// that is bound to [ReactiveTimePicker].
 ///
 /// See also [ReactiveDatePickerDelegate].
-typedef ReactiveDatePickerBuilder<T> =
-    Widget Function(
-      BuildContext context,
-      ReactiveDatePickerDelegate<T> picker,
-      Widget? child,
-    );
+typedef ReactiveDatePickerBuilder<T> = Widget Function(
+  BuildContext context,
+  ReactiveDatePickerDelegate<T> picker,
+  Widget? child,
+);
 
 /// This is a convenience widget that wraps the function
 /// [showDatePicker] in a [ReactiveDatePicker].
@@ -97,44 +96,46 @@ class ReactiveDatePicker<T> extends ReactiveFormField<T, DateTime> {
              field.context,
              ReactiveDatePickerDelegate<T>._(
                field,
-               (field) => showDatePicker(
-                 context: field.context,
-                 initialDate: _getInitialDate(
-                   firstDate,
-                   lastDate,
-                   initialDate ?? field.value ?? DateTime.now(),
-                 ),
-                 firstDate: firstDate,
-                 lastDate: lastDate,
-                 initialEntryMode: initialEntryMode,
-                 selectableDayPredicate: selectableDayPredicate,
-                 helpText: helpText,
-                 cancelText: cancelText,
-                 confirmText: confirmText,
-                 locale: locale,
-                 useRootNavigator: useRootNavigator,
-                 routeSettings: routeSettings,
-                 textDirection: textDirection,
-                 builder: transitionBuilder,
-                 initialDatePickerMode: initialDatePickerMode,
-                 errorFormatText: errorFormatText,
-                 errorInvalidText: errorInvalidText,
-                 fieldHintText: fieldHintText,
-                 fieldLabelText: fieldLabelText,
-                 currentDate: currentDate,
-                 keyboardType: keyboardType,
-                 anchorPoint: anchorPoint,
-                 barrierColor: barrierColor,
-                 barrierDismissible: barrierDismissible,
-                 barrierLabel: barrierLabel,
-                 switchToCalendarEntryModeIcon: switchToCalendarEntryModeIcon,
-                 switchToInputEntryModeIcon: switchToInputEntryModeIcon,
-                 onDatePickerModeChange: onDatePickerModeChange,
-               ).then((value) {
-                 if (value != null) {
-                   field.didChange(value);
-                 }
-               }),
+               (field) =>
+                   showDatePicker(
+                     context: field.context,
+                     initialDate: _getInitialDate(
+                       firstDate,
+                       lastDate,
+                       initialDate ?? field.value ?? DateTime.now(),
+                     ),
+                     firstDate: firstDate,
+                     lastDate: lastDate,
+                     initialEntryMode: initialEntryMode,
+                     selectableDayPredicate: selectableDayPredicate,
+                     helpText: helpText,
+                     cancelText: cancelText,
+                     confirmText: confirmText,
+                     locale: locale,
+                     useRootNavigator: useRootNavigator,
+                     routeSettings: routeSettings,
+                     textDirection: textDirection,
+                     builder: transitionBuilder,
+                     initialDatePickerMode: initialDatePickerMode,
+                     errorFormatText: errorFormatText,
+                     errorInvalidText: errorInvalidText,
+                     fieldHintText: fieldHintText,
+                     fieldLabelText: fieldLabelText,
+                     currentDate: currentDate,
+                     keyboardType: keyboardType,
+                     anchorPoint: anchorPoint,
+                     barrierColor: barrierColor,
+                     barrierDismissible: barrierDismissible,
+                     barrierLabel: barrierLabel,
+                     switchToCalendarEntryModeIcon:
+                         switchToCalendarEntryModeIcon,
+                     switchToInputEntryModeIcon: switchToInputEntryModeIcon,
+                     onDatePickerModeChange: onDatePickerModeChange,
+                   ).then((value) {
+                     if (value != null) {
+                       field.didChange(value);
+                     }
+                   }),
              ),
              child,
            );
@@ -163,8 +164,9 @@ class ReactiveDatePicker<T> extends ReactiveFormField<T, DateTime> {
 }
 
 /// Definition of the function responsible for show the date picker.
-typedef _ShowDatePickerCallback<T> =
-    void Function(ReactiveFormFieldState<T?, DateTime> field);
+typedef _ShowDatePickerCallback<T> = void Function(
+  ReactiveFormFieldState<T?, DateTime> field,
+);
 
 /// This class is responsible of showing the picker dialog.
 ///

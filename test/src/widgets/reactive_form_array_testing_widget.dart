@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ReactiveFormArrayTestingWidget extends StatelessWidget {
@@ -16,10 +16,9 @@ class ReactiveFormArrayTestingWidget extends StatelessWidget {
             formArrayName: 'array',
             builder: (context, array, child) {
               return Column(
-                children:
-                    array.value!
-                        .map((value) => Text(value.toString()))
-                        .toList(),
+                children: array.value!
+                    .map((value) => Text(value.toString()))
+                    .toList(),
               );
             },
           ),

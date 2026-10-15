@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// This is a convenience widget that wraps a [Radio] widget in a
@@ -48,28 +48,28 @@ class ReactiveRadio<T> extends ReactiveFocusableFormField<T, T> {
     ReactiveFormFieldCallback<T>? onChanged,
   }) : super(
          builder: (field) {
-           return Radio<T>(
-             value: value,
+           return RadioGroup<T>(
              groupValue: field.value,
-             activeColor: activeColor,
-             focusColor: focusColor,
-             hoverColor: hoverColor,
-             fillColor: fillColor,
-             overlayColor: overlayColor,
-             mouseCursor: mouseCursor,
-             splashRadius: splashRadius,
-             materialTapTargetSize: materialTapTargetSize,
-             visualDensity: visualDensity,
-             autofocus: autofocus,
-             toggleable: toggleable,
-             focusNode: field.focusNode,
-             onChanged:
-                 field.control.enabled
-                     ? (value) {
-                       field.didChange(value);
-                       onChanged?.call(field.control);
-                     }
-                     : null,
+             onChanged: (value) {
+               field.didChange(value);
+               onChanged?.call(field.control);
+             },
+             child: Radio<T>(
+               value: value,
+               enabled: field.control.enabled,
+               activeColor: activeColor,
+               focusColor: focusColor,
+               hoverColor: hoverColor,
+               fillColor: fillColor,
+               overlayColor: overlayColor,
+               mouseCursor: mouseCursor,
+               splashRadius: splashRadius,
+               materialTapTargetSize: materialTapTargetSize,
+               visualDensity: visualDensity,
+               autofocus: autofocus,
+               toggleable: toggleable,
+               focusNode: field.focusNode,
+             ),
            );
          },
        );

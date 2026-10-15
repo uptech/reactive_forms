@@ -5,8 +5,8 @@
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 /// A [ReactiveTextField] that contains a [TextField].
@@ -237,12 +237,12 @@ class ReactiveTextField<T> extends ReactiveFormField<T, String> {
              clipBehavior: clipBehavior,
              enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
              onTap: onTap != null ? () => onTap(field.control) : null,
-             onSubmitted:
-                 onSubmitted != null ? (_) => onSubmitted(field.control) : null,
-             onEditingComplete:
-                 onEditingComplete != null
-                     ? () => onEditingComplete.call(field.control)
-                     : null,
+             onSubmitted: onSubmitted != null
+                 ? (_) => onSubmitted(field.control)
+                 : null,
+             onEditingComplete: onEditingComplete != null
+                 ? () => onEditingComplete.call(field.control)
+                 : null,
              onChanged: (value) {
                field.didChange(value);
                onChanged?.call(field.control);
@@ -306,10 +306,9 @@ class _ReactiveTextFieldState<T>
   void _initializeTextController() {
     final initialValue = value;
     final currentWidget = widget as ReactiveTextField<T>;
-    _textController =
-        (currentWidget._textController != null)
-            ? currentWidget._textController!
-            : TextEditingController();
+    _textController = (currentWidget._textController != null)
+        ? currentWidget._textController!
+        : TextEditingController();
     _textController.text = initialValue == null ? '' : initialValue.toString();
   }
 

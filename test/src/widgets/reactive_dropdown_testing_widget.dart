@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class ReactiveDropdownTestingWidget extends StatelessWidget {
@@ -34,13 +34,9 @@ class ReactiveDropdownTestingWidget extends StatelessWidget {
             readOnly: readOnly,
             disabledHint: disabledHint,
             selectedItemBuilder: selectedItemBuilder,
-            items:
-                items.map<DropdownMenuItem<String>>((item) {
-                  return DropdownMenuItem<String>(
-                    value: item,
-                    child: Text(item),
-                  );
-                }).toList(),
+            items: items.map<DropdownMenuItem<String>>((item) {
+              return DropdownMenuItem<String>(value: item, child: Text(item));
+            }).toList(),
           ),
         ),
       ),

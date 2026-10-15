@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'reactive_date_picker_testing_widget.dart';
@@ -76,11 +76,9 @@ void main() {
         );
 
         // And: get initial date of the date picker
-        final datePickerState =
-            tester.allStates.firstWhere(
-                  (state) => state.widget is ReactiveDatePicker,
-                )
-                as ReactiveFormFieldState;
+        final datePickerState = tester.allStates.firstWhere(
+          (state) => state.widget is ReactiveDatePicker,
+        ) as ReactiveFormFieldState;
 
         // Then: initial date is equals to last Date
         expect(
@@ -102,11 +100,9 @@ void main() {
         );
 
         // And: get initial date of the date picker
-        final datePickerState =
-            tester.allStates.firstWhere(
-                  (state) => state.widget is ReactiveDatePicker,
-                )
-                as ReactiveFormFieldState;
+        final datePickerState = tester.allStates.firstWhere(
+          (state) => state.widget is ReactiveDatePicker,
+        ) as ReactiveFormFieldState;
 
         // Then: initial date is equals to last Date
         expect(
@@ -148,9 +144,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final initialDate = datePicker.initialDate;
 
         // Then: initial date if DateTime.now()
@@ -215,9 +211,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final actualInitialDate = datePicker.initialDate;
 
         // Then: initial date to widget's argument
@@ -255,9 +251,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final actualInitialDate = datePicker.initialDate;
 
         // Then: initial date is equals to firstDate
@@ -295,9 +291,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final actualInitialDate = datePicker.initialDate;
 
         // Then: initial date is equals to lastDate
@@ -335,9 +331,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final actualInitialDate = datePicker.initialDate;
 
         // Then: initial date is equals to firstDate
@@ -375,9 +371,9 @@ void main() {
         await tester.pump();
 
         // And: get initial date of the date picker
-        final datePicker =
-            tester.widget(find.byType(CalendarDatePicker))
-                as CalendarDatePicker;
+        final datePicker = tester.widget(
+          find.byType(CalendarDatePicker),
+        ) as CalendarDatePicker;
         final actualInitialDate = datePicker.initialDate;
 
         // Then: initial date is equals to lastDate

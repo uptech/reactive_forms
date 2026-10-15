@@ -2,7 +2,7 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 @optionalTypeArgs
@@ -33,11 +33,10 @@ class ReactiveFormPopScope<T> extends StatelessWidget {
       builder: (context, formGroup, _) {
         return PopScope<T>(
           canPop: canPop?.call(formGroup) ?? true,
-          onPopInvokedWithResult:
-              onPopInvokedWithResult != null
-                  ? (didPop, result) =>
-                      onPopInvokedWithResult!(formGroup, didPop, result)
-                  : null,
+          onPopInvokedWithResult: onPopInvokedWithResult != null
+              ? (didPop, result) =>
+                    onPopInvokedWithResult!(formGroup, didPop, result)
+              : null,
           child: child,
         );
       },
