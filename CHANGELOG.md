@@ -1,3 +1,8 @@
+# 19.0.0
+
+- Migrate to material_ui
+- Set Flutter minimum to 3.47.0
+
 # 18.2.2
 
 ## Fixes
